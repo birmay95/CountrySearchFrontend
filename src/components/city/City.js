@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = "https://countrysearchfrontend.onrender.com";
 
 export default function City() {
 
