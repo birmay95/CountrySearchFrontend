@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Container, Paper } from '@mui/material';
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const apiUrl = "https://countrysearchfrontend.onrender.com";
+const apiUrl = "https://countrysearch.onrender.com";
 
 export default function AddCity() {
     let navigate = useNavigate();

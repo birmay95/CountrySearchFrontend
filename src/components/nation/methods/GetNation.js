@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const apiUrl = "https://countrysearchfrontend.onrender.com";
+const apiUrl = "https://countrysearch.onrender.com";
 
 export default function GetNation() {
     const [countries, setCountries] = useState([]);
