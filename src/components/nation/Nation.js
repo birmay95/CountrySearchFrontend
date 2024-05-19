@@ -20,7 +20,7 @@ export default function Nation() {
       const data = await response.json();
       setNations(data);
     } catch (error) {
-      console.error('There was a problem with your fetch operation:', error);
+      console.error('There was not any nation in database:', error);
       setNations([]);
     }
   };

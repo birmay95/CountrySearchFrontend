@@ -20,7 +20,7 @@ export default function City() {
       const data = await response.json();
       setCities(data);
     } catch (error) {
-      console.error('There was a problem with your fetch operation:', error);
+      console.error('There was not any city in database:', error);
       setCities([]);
     }
   };
