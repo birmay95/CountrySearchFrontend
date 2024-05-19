@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.link-without-outline {
+  text-decoration: none;
+  outline: none;
+  text-align: center;
+  color: black;
+  padding-left: 10px;
+}

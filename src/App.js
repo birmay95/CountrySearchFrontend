@@ -1,23 +1,78 @@
-import logo from './logo.svg';
 import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Appbar from './components/Appbar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import EditCountry from "./components/country/methods/EditCountry";
+import AddCountry from "./components/country/methods/AddCountry";
+import GetCountry from "./components/country/methods/GetCountry";
+import Country from './components/country/Country';
+import AddCity from "./components/city/methods/AddCity";
+import EditCity from "./components/city/methods/EditCity";
+import EditNation from "./components/nation/methods/EditNation";
+import AddNation from "./components/nation/methods/AddNation";
+import Nation from './components/nation/Nation';
+import GetNation from "./components/nation/methods/GetNation";
+import City from './components/city/City';
+import Info from './components/Info'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+
+      <Routes>
+        <Route exact path="/edit-country/:id" element={<EditCountry />} />
+        <Route exact path="/edit-country/:id/in-nation/:nationId" element={<EditCountry />} />
+        <Route exact path="/add-country" element={<AddCountry />} />
+        <Route exact path="/get-country/:countryId" element={<GetCountry />} />
+        <Route exact path="/add-city/:id" element={<AddCity />} />
+        <Route exact path="/edit-city/:cityId/in-country/:countryId" element={<EditCity />} />
+        <Route exact path="/edit-city/:cityId" element={<EditCity />} />
+        <Route exact path="/edit-nation/:nationId/in-country/:countryId" element={<EditNation />} />
+        <Route exact path="/edit-nation/:nationId" element={<EditNation />} />
+        <Route exact path="/add-nation/:id" element={<AddNation />} />
+        <Route exact path="/get-countries-from-nation/:id" element={<GetNation />} />
+
+        <Route
+          exact path="/"
+          element={
+            <div>
+              <Appbar />
+              <Info />
+            </div>
+          }
+        />
+        <Route
+          exact path="/country"
+          element={
+            <div>
+              <Appbar />
+              <Country />
+            </div>
+          }
+        />
+        <Route
+          exact path="/nation"
+          element={
+            <div>
+              <Appbar />
+              <Nation />
+            </div>
+          }
+        />
+        <Route
+          exact path="/city"
+          element={
+            <div>
+              <Appbar />
+              <City />
+            </div>
+          }
+        />
+
+
+      </Routes>
+      </Router>
     </div>
   );
 }
