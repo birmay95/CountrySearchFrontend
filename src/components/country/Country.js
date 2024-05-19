@@ -21,6 +21,7 @@ export default function Country() {
       setCountries(data);
     } catch (error) {
       console.error('There was a problem with fetch operation:', error);
+      setCountries([]);
     }
   };
 

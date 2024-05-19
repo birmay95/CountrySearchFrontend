@@ -21,6 +21,7 @@ export default function City() {
       setCities(data);
     } catch (error) {
       console.error('There was a problem with your fetch operation:', error);
+      setCities([]);
     }
   };
 
