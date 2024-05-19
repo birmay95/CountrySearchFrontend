@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function GetNation() {
     const [countries, setCountries] = useState([]);
 
@@ -13,7 +15,7 @@ export default function GetNation() {
 
   const loadCountriesFromNation = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/nations/${id}/countries`);
+      const response = await fetch(`${apiUrl}/api/nations/${id}/countries`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -27,7 +29,7 @@ export default function GetNation() {
 
   const deleteNation = async (countryId) => {
     try {
-      await fetch(`http://localhost:8080/api/countries/${countryId}/nations/${id}`, {
+      await fetch(`${apiUrl}/api/countries/${countryId}/nations/${id}`, {
         method: 'DELETE'
       });
       loadCountriesFromNation();

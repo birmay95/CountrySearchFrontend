@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function City() {
 
   const [cities, setCities] = useState([]);
@@ -11,7 +13,7 @@ export default function City() {
 
   const loadCities = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/cities");
+      const response = await fetch(`${apiUrl}/api/cities`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

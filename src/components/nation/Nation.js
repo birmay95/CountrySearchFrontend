@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function Nation() {
 
   const [nations, setNations] = useState([]);
@@ -11,7 +13,7 @@ export default function Nation() {
 
   const loadNations = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/nations");
+      const response = await fetch(`${apiUrl}/api/nations`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -24,7 +26,7 @@ export default function Nation() {
 
   const deleteNation = async (id) => {
     try {
-      await fetch(`http://localhost:8080/api/nations/${id}`, {
+      await fetch(`${apiUrl}/api/nations/${id}`, {
         method: 'DELETE'
       });
       loadNations();

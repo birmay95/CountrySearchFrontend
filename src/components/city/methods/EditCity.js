@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function EditCountry() {
   const navigate = useNavigate();
   const { cityId, countryId } = useParams();
@@ -19,7 +21,7 @@ export default function EditCountry() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:8080/api/cities/${cityId}?name=${city.name}&population=${city.population}&areaSquareKm=${city.areaSquareKm}`;
+    const url = `${apiUrl}/api/cities/${cityId}?name=${city.name}&population=${city.population}&areaSquareKm=${city.areaSquareKm}`;
   
     try {
       const response = await fetch(url, {

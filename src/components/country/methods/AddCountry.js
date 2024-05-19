@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import { Container, Paper } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function AddCountry() {
     let navigate = useNavigate();
     const paperStyle = { padding: '20px 20px', width: 600, margin: "20px auto" };
@@ -20,7 +22,7 @@ export default function AddCountry() {
         console.log(country.name);
         try {
             console.log(country);
-            const response = await fetch("http://localhost:8080/api/country", {
+            const response = await fetch(`${apiUrl}/api/country`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(country)

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function EditCountry() {
   const navigate = useNavigate();
   const { id, nationId } = useParams();
@@ -22,7 +24,7 @@ export default function EditCountry() {
   useEffect(() => {
     const loadCountry = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/country/${id}`);
+        const response = await fetch(`${apiUrl}/api/country/${id}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -39,7 +41,7 @@ export default function EditCountry() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:8080/api/country/${id}?name=${country.name}&capital=${country.capital}&population=${country.population}&areaSquareKm=${country.areaSquareKm}&gdp=${country.gdp}`;
+    const url = `${apiUrl}/api/country/${id}?name=${country.name}&capital=${country.capital}&population=${country.population}&areaSquareKm=${country.areaSquareKm}&gdp=${country.gdp}`;
   
     try {
       const response = await fetch(url, {

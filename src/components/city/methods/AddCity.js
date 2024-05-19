@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import { Container, Paper } from '@mui/material';
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function AddCity() {
     let navigate = useNavigate();
     const { id } = useParams();
@@ -19,7 +21,7 @@ export default function AddCity() {
         console.log(city);
         console.log(id);
         try {
-            const response = await fetch(`http://localhost:8080/api/countries/${id}/city`, {
+            const response = await fetch(`${apiUrl}/api/countries/${id}/city`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(city)
